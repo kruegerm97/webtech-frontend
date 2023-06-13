@@ -1,5 +1,6 @@
 <template>
   <nav>
+    <router-link to="/settings">Settings</router-link> |
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
@@ -28,3 +29,5 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script setup>
+</script>

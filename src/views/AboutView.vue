@@ -1,5 +1,17 @@
 <template>
   <div class="about">
-    <h1>This is a Project by Maurice and Janik</h1>
+    <Locator msg="You are at: About"/>
+    <h1>Spotify-Playlist-Creator by Maurice and Janik</h1>
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import Locator from '@/components/Locator.vue'
+export default {
+  name: 'HomeView',
+  components: {
+    Locator
+  }
+}
+</script>

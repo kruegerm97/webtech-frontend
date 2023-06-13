@@ -1,30 +1,20 @@
-<script setup>
-import { ref, computed } from 'vue'
-let inputText = ref('4au6goX6kuGGbMGUqbbRO6')
-const inputUrl = computed(() => {
-  return `https://open.spotify.com/embed/playlist/${inputText.value}?utm_source=generator`;
-})
-</script>
-
 <template>
   <div class="home">
     <!--<img alt="Vue logo" src="../assets/logo.png">-->
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <input v-model="inputText" type="input" placeholder="enter the Playlist-ID" class="w-full py-2 border border-indigo-500 rounded"/>
-    <button @click="something">Hey</button>
-    <iframe style="border-radius:12px" :src="inputUrl" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <div>{{inputText}}</div>
-    <div>{{inputUrl}}</div>
+    <Locator msg="You are at: Home"/>
+    <DynamicPlaylist/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Locator from '@/components/Locator.vue'
+import DynamicPlaylist from '@/components/DynamicPlaylist.vue'
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    Locator,
+    DynamicPlaylist
   }
 }
 </script>
