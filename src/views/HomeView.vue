@@ -2,19 +2,18 @@
   <div class="home">
     <!--<img alt="Vue logo" src="../assets/logo.png">-->
     <Locator msg="You are at: Home"/>
-    <DynamicPlaylist/>
+    <!--<DynamicPlaylist/>-->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import Locator from '@/components/Locator.vue'
-import DynamicPlaylist from '@/components/DynamicPlaylist.vue'
+//import DynamicPlaylist from '@/components/DynamicPlaylist.vue'
 export default {
   name: 'HomeView',
   components: {
     Locator,
-    DynamicPlaylist
+    //DynamicPlaylist
   }
 }
 </script>

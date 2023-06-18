@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <LoginThing/>
+  <SettingsThing/>
 </template>
 
 <style scoped>
@@ -11,12 +11,12 @@
 </style>
 
 <script>
-import LoginThing from '@/components/LoginThing.vue'
+import SettingsThing from '@/components/SettingsThing.vue'
 
 export default {
   name: 'SettingsView',
   components: {
-    LoginThing
+    SettingsThing
   }
 }
 </script>

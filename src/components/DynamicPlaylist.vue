@@ -11,8 +11,8 @@
     <input v-model="inputText" type="input" placeholder="enter the Playlist-ID" class="w-full py-2 border border-indigo-500 rounded"/>
     <button @click="something">Hey</button>
     <iframe style="border-radius:12px" :src="inputUrl" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <div>{{inputText}}</div>
-    <div>{{inputUrl}}</div>
+    <div>{{inputText}}</div> <!--Debug reasons-->
+    <div>{{inputUrl}}</div> <!--Debug reasons-->
   </div>
 </template>
 
