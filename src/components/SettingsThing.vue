@@ -18,8 +18,8 @@
         <td colspan="3">No Users yet</td>
       </tr>
       <tr v-for="item in items" :key="item.id">
-        <td>{{item.CIDField}}</td>
-        <td>{{item.CSField}}</td>
+        <td>{{item.client_id}}</td>
+        <td>{{item.client_secret}}</td>
       </tr>
       </tbody>
     </table>
@@ -33,36 +33,36 @@ export default {
     return {
       items: [],
       CIDField:'',
-      CSField:'',
+      CSField:''
     }
   },
   methods: {
     loadThings () {
       const baseUrl = 'http://localhost:8080'
-      const endpoint = baseUrl + '/entries'
+      const endpoint = baseUrl + '/user'
       const requestOptions = {
         method: 'GET',
-        redirect: 'follow'
+        redirect: 'follow',
+        mode: 'no-cors'
       }
       fetch(endpoint, requestOptions)
           .then(response => response.json())
           .then(result => result.forEach(thing => {
             this.items.push(thing)
           }))
-          .catch(error => console.log('error', error))
+          .catch(error => console.log('1 error', error))
     },
     save () {
       const baseUrl = 'http://localhost:8080'
-      const endpoint = baseUrl + '/entries'
+      const endpoint = baseUrl + '/user'
       const data = {
-        ClientId: this.CIDField,
-        ClientSecret: this.CSField,
+        clientId: this.CIDField,
+        clientSecret: this.CSField
       }
       const requestOptions = {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       }
       fetch(endpoint, requestOptions)
@@ -70,7 +70,7 @@ export default {
           .then(data => {
             console.log('Success:', data)
           })
-          .catch(error => console.log('error', error))
+          .catch(error => console.log('2 error', error))
     },
     async setup () {
       if (this.$root.authenticated) {
