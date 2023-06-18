@@ -18,8 +18,8 @@
         <td colspan="3">No Users yet</td>
       </tr>
       <tr v-for="item in items" :key="item.id">
-        <td>{{item.client_id}}</td>
-        <td>{{item.client_secret}}</td>
+        <td>{{item.clientId}}</td>
+        <td>{{item.clientSecret}}</td>
       </tr>
       </tbody>
     </table>
@@ -42,8 +42,7 @@ export default {
       const endpoint = baseUrl + '/user'
       const requestOptions = {
         method: 'GET',
-        redirect: 'follow',
-        mode: 'no-cors'
+        mode: 'cors'
       }
       fetch(endpoint, requestOptions)
           .then(response => response.json())
@@ -61,7 +60,7 @@ export default {
       }
       const requestOptions = {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       }
