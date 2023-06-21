@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <!--<img alt="Vue logo" src="../assets/logo.png">-->
     <Locator msg="You are at: Home"/>
     <!--<DynamicPlaylist/>-->
   </div>

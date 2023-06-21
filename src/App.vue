@@ -1,4 +1,5 @@
 <template>
+  <img alt="SPC logo" src="./assets/logo_new.png" style="width: 100px; height: 100px">
   <nav>
     <router-link to="/settings">Settings</router-link> |
     <router-link to="/">Home</router-link> |
