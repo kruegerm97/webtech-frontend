@@ -45,8 +45,9 @@ nav a.router-link-exact-active {
 </style>
 
 <script setup>
-
-
-
 import homeView from "@/views/HomeView.vue";
+</script>
+
+<script>
+
 </script>
