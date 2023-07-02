@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <Locator msg="You are at: About"/>
+    <Locator location="About"/>
     <h1>Spotify-Playlist-Creator by Maurice and Janik</h1>
   </div>
 </template>

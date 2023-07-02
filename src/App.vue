@@ -20,7 +20,7 @@
 }
 
 nav {
-  padding: 30px;
+ margin: 15px 0 0;
 }
 
 nav a {
