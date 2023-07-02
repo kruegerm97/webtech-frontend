@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <Locator location="Home"/>
+    <FancyCounter :number="playlist.length"/>
     <div class="playlistRender" v-for="song in playlist" :key="song.id">
       <SongPreview :linkId="song.track_id"/>
     </div>
@@ -10,9 +11,11 @@
 <script>
 import Locator from '@/components/Locator.vue'
 import SongPreview from "@/components/SongPreview.vue";
+import FancyCounter from "@/components/FancyCounter.vue";
 export default {
   name: 'HomeView',
   components: {
+    FancyCounter,
     SongPreview,
     Locator,
   },
