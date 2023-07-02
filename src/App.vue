@@ -1,13 +1,21 @@
 <template>
-  <router-link to="/">
-      <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_new.png" style="width: 100px; height: 100px">
-  </router-link>
-  <nav>
-    <router-link to="/settings">Settings</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <v-app>
+    <router-link to="/">
+        <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_new.png" style="width: 100px; height: 100px; margin: 10px 0 0">
+    </router-link>
+    <router-view/>
+    <v-bottom-navigation v-model="value" :bg-color="color" mode="shift" :elevation="20">
+      <v-btn to="/settings" value="settings">
+        <v-icon icon="mdi-cog">mdi-cog</v-icon>
+      </v-btn>
+      <v-btn to="/" value="home">
+        <v-icon icon="mdi-home">mdi-home</v-icon>
+      </v-btn>
+      <v-btn to="/about" value="about">
+        <v-icon icon="mdi-help">mdi-help</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
+  </v-app>
 </template>
 
 <style>
@@ -19,19 +27,6 @@
   color: #2c3e50;
 }
 
-nav {
- margin: 15px 0 0;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 //TODO: transform over time, transition;
 
 .bigger {
@@ -39,7 +34,7 @@ nav a.router-link-exact-active {
 }
 
 .bigger:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
 </style>
@@ -49,5 +44,7 @@ import homeView from "@/views/HomeView.vue";
 </script>
 
 <script>
-
+export default {
+  data: () => ({ value: 0 }),
+}
 </script>

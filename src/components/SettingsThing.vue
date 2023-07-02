@@ -2,7 +2,7 @@
   <div class="login">
     <input v-model="CIDField" type="input" placeholder="enter your Client-ID"/>
     <input v-model="CSField" type="input" placeholder="enter your Client-Secret" @keyup.enter="save()"/>
-    <button @click="save()">Save</button>
+    <v-btn variant="tonal" @click="save()">Save</v-btn>
   </div>
   <div>
     <table>
