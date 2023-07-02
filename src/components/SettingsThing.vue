@@ -1,7 +1,7 @@
 <template>
   <div class="login">
-    <input v-model="CIDField" type="input" placeholder="enter your Client-ID" class="w-full py-2 border border-indigo-500 rounded"/>
-    <input v-model="CSField" type="input" placeholder="enter your Client-Secret" class="w-full py-2 border border-indigo-500 rounded" @keyup.enter="save()"/>
+    <input v-model="CIDField" type="input" placeholder="enter your Client-ID"/>
+    <input v-model="CSField" type="input" placeholder="enter your Client-Secret" @keyup.enter="save()"/>
     <button @click="save()">Save</button>
   </div>
   <div>
@@ -49,7 +49,7 @@ export default {
           .then(result => result.forEach(thing => {
             this.items.push(thing)
           }))
-          .catch(error => console.log('1 error', error))
+          .catch(error => console.log('cS1 error', error))
     },
     save () {
       const baseUrl = 'http://localhost:8080'
@@ -69,7 +69,7 @@ export default {
           .then(data => {
             console.log('Success:', data)
           })
-          .catch(error => console.log('2 error', error))
+          .catch(error => console.log('cS2 error', error))
     },
     async setup () {
       if (this.$root.authenticated) {
