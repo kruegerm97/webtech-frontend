@@ -33,7 +33,7 @@
 // @ is an alias to /src
 import Locator from '@/components/Locator.vue'
 export default {
-  name: 'HomeView',
+  name: 'AboutView',
   components: {
     Locator
   },

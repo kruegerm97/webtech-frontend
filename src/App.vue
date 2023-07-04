@@ -1,10 +1,11 @@
 <template>
-  <v-app>
+  <v-app theme="myCustomLightTheme">
     <router-link to="/">
         <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_new.png" style="width: 100px; height: 100px; margin: 10px 0 0">
     </router-link>
+    <theme-change class="rightSide"/>
     <router-view/>
-    <v-bottom-navigation v-model="value" :bg-color="color" mode="shift" :elevation="20">
+    <v-bottom-navigation style="margin: 0px 0px 20px; border-color: #C6F227" border mode="" density="comfortable" rounded="xl" bg-color="rgba(255, 0, 0, 0.001)" color="secondary">
       <v-btn to="/settings" value="settings">
         <v-icon icon="mdi-cog">mdi-cog</v-icon>
       </v-btn>
@@ -37,14 +38,18 @@
   transform: scale(1.2);
 }
 
+.rightSide{
+  align-self: flex-end;
+  margin: 0 0 0;
+}
+
 </style>
 
 <script setup>
 import homeView from "@/views/HomeView.vue";
+import ThemeChange from "@/components/themeChange.vue";
 </script>
 
 <script>
-export default {
-  data: () => ({ value: 0 }),
-}
+
 </script>
