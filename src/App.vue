@@ -1,12 +1,13 @@
 <template>
-  <v-app theme="clt">
+  <v-app>
     <router-link to="/">
         <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_icon.png" style="width: 100px; height: 100px; margin: 10px 0 0">
     </router-link>
-    <theme-change class="rightSide"/>
-    <TestComponent/>
+    <theme-change style="align-self: end"/>
+    <TestComponent v-if="false"/>
     <router-view/>
-    <v-bottom-navigation style="margin: 0px 0px 20px; border-color: #1fd660" border mode="" density="comfortable" rounded="xl" bg-color="background" color="primary">
+    <div style="height: 100px"/>
+    <v-bottom-navigation style="margin-bottom: 20px; border-color: #1fd660" border density="comfortable" rounded="xl" bg-color="background" color="primary">
       <v-btn to="/settings" value="settings">
         <v-icon icon="mdi-cog">mdi-cog</v-icon>
       </v-btn>

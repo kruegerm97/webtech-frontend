@@ -15,7 +15,7 @@
         </v-list-item>
       </v-list>
     </v-card>
-    <v-card class="mx-auto" max-width="300">
+    <v-card class="mx-auto pa-2" max-width="300">
       <v-list>
         <v-list-subheader>Backend</v-list-subheader>
         <v-list-item v-for="(item, i) in itemsTwo" :key="i" :value="item" color="primary" rounded="xl">
@@ -47,6 +47,7 @@ export default {
     ],
     itemsTwo: [
       {title: 'Java', icon: 'mdi-language-java'},
+      {title: 'Spotify-Api', icon: 'mdi-spotify'},
     ],
   }),
 }

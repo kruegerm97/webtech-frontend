@@ -1,5 +1,7 @@
 <template>
   <h2>{{theme.global.name}}</h2>
+  <h2>{{theme.global.current.value.colors}}</h2>
+  <h2>{{theme.name}}</h2>
   <h2>{{theme.current.value.colors}}</h2>
 </template>
 

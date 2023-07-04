@@ -1,9 +1,8 @@
-import { createApp } from 'vue'
 import 'vuetify/styles'
 import { createVuetify, ThemeDefinition } from 'vuetify'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
-const clt = {
+const customLightTheme = {
     dark: false,
     colors: {
         background: '#0b1923',
@@ -21,9 +20,9 @@ const clt = {
 
 export default createVuetify({
     theme: {
-        defaultTheme: 'clt',
+        defaultTheme: 'customLightTheme',
         themes: {
-            clt,
+            customLightTheme,
         },
     },
     icons: {
