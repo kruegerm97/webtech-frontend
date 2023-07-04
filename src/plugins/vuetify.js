@@ -1,18 +1,19 @@
 import { createApp } from 'vue'
+import 'vuetify/styles'
 import { createVuetify, ThemeDefinition } from 'vuetify'
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
-const myCustomLightTheme = {
+const clt = {
     dark: false,
     colors: {
-        background: '#FFFFFF',
-        surface: '#FFFFFF',
-        primary: '#C6F227',
-        'primary-darken-1': '#82F263',
-        secondary: '#056CF2',
-        'secondary-darken-1': '#4B53F2',
+        background: '#0b1923',
+        surface: '#0b1923',
+        primary: '#1fd660',
+        'primary-darken-1': '#1a9f49',
+        secondary: '#1fd660',
+        'secondary-darken-1': '#1a9f49',
         error: '#B00020',
-        info: '#2BD9C7',
+        info: '#B00020',
         success: '#4CAF50',
         warning: '#FB8C00',
     },
@@ -20,9 +21,9 @@ const myCustomLightTheme = {
 
 export default createVuetify({
     theme: {
-        defaultTheme: 'myCustomLightTheme',
+        defaultTheme: 'clt',
         themes: {
-            myCustomLightTheme,
+            clt,
         },
     },
     icons: {
