@@ -1,9 +1,9 @@
 <template>
-  <v-app>
+  <v-app style="font-family: LiveOverfont">
     <router-link to="/">
-        <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_icon.png" style="width: 100px; height: 100px; margin: 10px 0 0">
+        <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_icon.png" style="width: 150px; height: 150px; margin: 10px 0 0">
     </router-link>
-    <theme-change style="align-self: end"/>
+    <theme-change/>
     <TestComponent v-if="false"/>
     <router-view/>
     <div style="height: 100px"/>
@@ -22,6 +22,10 @@
 </template>
 
 <style>
+@font-face {
+  font-family: "LiveOverfont";
+  src: local("LiveOverfont"), url("@/assets/fonts/LiveOverfont.woff") format("woff");
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,5 +1,5 @@
 <template>
-  <h6>You are at: {{ location }}</h6>
+  <h3>You are at: {{ location }}</h3>
 </template>
 
 <script>
