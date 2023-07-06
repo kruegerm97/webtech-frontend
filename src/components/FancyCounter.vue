@@ -1,22 +1,15 @@
-<script setup>
-  import { ref, reactive, watch } from 'vue'
-  import gsap from 'gsap'
-
-  const number = ref(0)
-  const tweened = reactive({
-    number: 0
-  })
-
-  watch(number, (n) => {
-    gsap.to(tweened, { duration: 0.5, number: Number(n) || 0 })
-  })
-</script>
-
 <template>
-  Type a number: <input v-model.number="number" />
   <p>{{ tweened.number.toFixed(0) }}</p>
 </template>
 
-<script>
+<script setup>
+import { reactive} from 'vue'
+import gsap from 'gsap'
 
+// eslint-disable-next-line no-undef
+const props = defineProps({number:Number})
+const tweened = reactive({
+  number : 0
+})
+gsap.to(tweened, { duration: props.number/200, number: Number(props.number) || 0 })
 </script>
