@@ -1,32 +1,30 @@
 <template>
-  <div class="about">
-    <Locator location="About"/>
-    <h2>Spotify-Playlist-Creator by Maurice and Janik</h2>
-  </div>
-  <div class="used">
-    <v-card class="mx-auto pa-2" max-width="300">
-      <v-list>
-        <v-list-subheader>Frontend</v-list-subheader>
-        <v-list-item v-for="(item, i) in items" :key="i" :value="item" color="primary" rounded="xl">
+  <Locator location="About"/>
+  <h2>Spotify-Playlist-Creator by Maurice and Janik</h2>
+  <vContainer class="used">
+    <vCard class="mx-auto pa-2" max-width="300">
+      <vList>
+        <vListSubheader>Frontend</vListSubheader>
+        <vListItem v-for="(item, i) in items" :key="i" :value="item" color="primary" rounded="xl">
           <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
+            <vIcon :icon="item.icon"></vIcon>
           </template>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-card>
-    <v-card class="mx-auto pa-2" max-width="300">
-      <v-list>
-        <v-list-subheader>Backend</v-list-subheader>
-        <v-list-item v-for="(item, i) in itemsTwo" :key="i" :value="item" color="primary" rounded="xl">
+          <vListItemTitle v-text="item.title"></vListItemTitle>
+        </vListItem>
+      </vList>
+    </vCard>
+    <vCard class="mx-auto pa-2" max-width="300">
+      <vList>
+        <vListSubheader>Backend</vListSubheader>
+        <vListItem v-for="(item, i) in itemsTwo" :key="i" :value="item" color="primary" rounded="xl">
           <template v-slot:prepend>
-            <v-icon :icon="item.icon"></v-icon>
+            <vIcon :icon="item.icon"></vIcon>
           </template>
-          <v-list-item-title v-text="item.title"></v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-card>
-  </div>
+          <vListItemTitle v-text="item.title"></vListItemTitle>
+        </vListItem>
+      </vList>
+    </vCard>
+  </vContainer>
 </template>
 
 <script>

@@ -1,24 +1,28 @@
 <template>
-  <v-app style="font-family: LiveOverfont">
-    <router-link to="/">
-        <img class="bigger" @click="homeView" role="link" alt="SPC logo" contain src="./assets/logo_icon.png" style="width: 150px; height: 150px; margin: 10px 0 0">
-    </router-link>
-    <theme-change/>
+  <vApp style="font-family: LiveOverfont">
+    <vContainer>
+      <routerLink to="/">
+        <vImg class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_icon.png')" style="width: 150px; height: 150px"/>
+      </routerLink>
+      <themeChange/>
+    </vContainer>
     <TestComponent v-if="false"/>
-    <router-view/>
+    <routerView/>
     <div style="height: 100px"/>
-    <v-bottom-navigation style="margin-bottom: 20px; border-color: #1fd660" border density="comfortable" rounded="xl" bg-color="background" color="primary">
-      <v-btn to="/settings" value="settings">
-        <v-icon icon="mdi-cog">mdi-cog</v-icon>
-      </v-btn>
-      <v-btn to="/" value="home">
-        <v-icon icon="mdi-home">mdi-home</v-icon>
-      </v-btn>
-      <v-btn to="/about" value="about">
-        <v-icon icon="mdi-help">mdi-help</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
-  </v-app>
+    <vContainer>
+      <vBottomNavigation style="margin-bottom: 20px; border-color: #1fd660" border density="comfortable" rounded="lg" bg-color="background" color="primary">
+        <vBtn to="/settings" value="settings">
+          <vIcon icon="mdi-cog">mdi-cog</vIcon>
+        </vBtn>
+        <vBtn to="/" value="home">
+          <vIcon icon="mdi-home">mdi-home</vIcon>
+        </vBtn>
+        <vBtn to="/about" value="about">
+          <v-icon icon="mdi-help">mdi-help</v-icon>
+        </vBtn>
+      </vBottomNavigation>
+    </vContainer>
+  </vApp>
 </template>
 
 <style>
@@ -55,8 +59,4 @@
 import homeView from "@/views/HomeView.vue";
 import ThemeChange from "@/components/themeChange.vue";
 import TestComponent from "@/components/TestComponent.vue";
-</script>
-
-<script>
-
 </script>

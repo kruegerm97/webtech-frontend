@@ -10,10 +10,3 @@ export default {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h6 {
-  margin: 5px 0 15px;
-}
-</style>
