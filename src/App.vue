@@ -6,7 +6,7 @@
       </routerLink>
       <themeChange/>
     </vContainer>
-    <TestComponent v-if="false"/>
+    <TestComponent v-if="true"/>
     <routerView/>
     <div style="height: 100px"/>
     <vContainer>
