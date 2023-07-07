@@ -1,12 +1,20 @@
 <template>
-  <vApp style="font-family: LiveOverfont">
+  <vApp theme="customLightTheme" style="font-family: LiveOverfont">
     <vContainer>
-      <routerLink to="/">
-        <vImg class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_icon.png')" style="width: 150px; height: 150px"/>
-      </routerLink>
-      <themeChange/>
+      <v-row>
+        <VSpacer></VSpacer>
+        <routerLink to="/">
+          <VImg class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_icon.png')" style="width: 150px; height: 150px"/>
+        </routerLink>
+        <VSpacer></VSpacer>
+      </v-row>
+      <vRow>
+        <VSpacer></VSpacer>
+        <themeChange/>
+        <VSpacer></VSpacer>
+      </vRow>
     </vContainer>
-    <TestComponent v-if="true"/>
+    <TestComponent v-if="false"/>
     <routerView/>
     <div style="height: 100px"/>
     <vContainer>
