@@ -4,7 +4,7 @@
     <vRow>
       <v-spacer></v-spacer>
       <vTextField v-model="inputPlaylistId" label="enter the Playlist-ID" variant="outlined"></vTextField>
-      <vBtn style="margin: 10px" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal">Import to Database</vBtn>
+      <vBtn style="margin-left: 10px; margin-top: 0.75%" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal">Import to Database</vBtn>
       <v-spacer></v-spacer>
     </vRow>
 <!--    <FancyCounter :number="playlist.length"/>
