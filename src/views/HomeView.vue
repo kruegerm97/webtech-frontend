@@ -7,16 +7,16 @@
       <v-btn @click="getSongs(inputPlaylistId), getDb()" style="margin-left: 10px; margin-top: 13px" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal">Import to Database</v-btn>
       <v-spacer></v-spacer>
     </vRow>
-      <v-row>
+      <v-row style="margin-bottom: 15px;">
         <v-spacer></v-spacer>
         <p style="margin-right: 4px;" v-if="!isFetching"><FancyCounter v-if="!isFetching" :number="playlistLength" />Songs in this Playlist</p>
         <p v-if="!isFetchingTwo && !isFetching" style="width: 20px; font-size: 40px;">|</p>
         <p style="margin-left: 4px;" v-if="!isFetchingTwo"><FancyCounter v-if="!isFetchingTwo" :number="dbEntriesLength" />Songs in Database</p>
         <v-spacer></v-spacer>
       </v-row>
-      <!-- <div class="playlistRender" v-for="song in playlist" :key="song.id">
+      <div class="playlistRender" v-for="song in playlist" :key="song.id">
         <SongPreview :linkId="song.value"/>
-      </div> -->
+      </div>
   </v-container>
 </template>
 
