@@ -18,7 +18,7 @@
     <routerView/>
     <div style="height: 100px"/>
     <vContainer>
-      <vBottomNavigation style="margin-bottom: 20px; border-color: #1fd660" border density="comfortable" rounded="lg" bg-color="background" color="primary">
+      <vBottomNavigation style="margin-bottom: 20px; border-color: #6300ef" border density="comfortable" rounded="lg" bg-color="background" color="primary">
         <vBtn to="/settings" value="settings">
           <vIcon icon="mdi-cog">mdi-cog</vIcon>
         </vBtn>

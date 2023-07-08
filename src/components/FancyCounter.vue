@@ -11,5 +11,5 @@ const props = defineProps({number:Number})
 const tweened = reactive({
   number : 0
 })
-gsap.to(tweened, { duration: props.number/200, number: Number(props.number) || 0 })
+gsap.to(tweened, { duration: 2, number: Number(props.number) || 0 })
 </script>
