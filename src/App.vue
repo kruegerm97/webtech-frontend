@@ -1,9 +1,6 @@
 <template>
   <vApp theme="customLightTheme" style="font-family: LiveOverfont">
     <vContainer>
-      <div style="font-family: Arial, Helvetica, sans-serif; font-size: 9pt;" v-if="devModeSwitch">
-        <p></p>
-      </div>
       <v-row>
         <VSpacer></VSpacer>
         <routerLink to="/">
@@ -70,7 +67,6 @@
 /* eslint-disable no-unused-vars */
 import homeView from "@/views/HomeView.vue";
 import ThemeChange from "@/components/themeChange.vue";
-import TestComponent from "@/components/TestComponent.vue";
 import { ref } from "vue";
 
 const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
