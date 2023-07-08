@@ -29,7 +29,12 @@
       </div>
     </v-row>
     <v-row v-if="!iFrameSwitch">
-      <BetterCard/>
+      <div class="playlistRenderCard" v-for="song in songs" :key="song.id">
+        <v-spacer></v-spacer>
+          <h1 v-if="devModeSwitch">{{song}}</h1>
+         <BetterCard v-if="!isFetching" :current-song-id="song.id" :current-song-artist="song.artist" :current-song-name="" :current-song-picture="" :current-song-down-votes="" :current-song-up-votes=""/>
+        <v-spacer></v-spacer>
+      </div>
     </v-row>
   </v-container>
 </template>

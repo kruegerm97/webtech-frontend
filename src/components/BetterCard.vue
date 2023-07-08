@@ -1,11 +1,17 @@
 <template>
-  <v-card variant="outlined" color="secondary" class="mx-auto" max-width="344">
-    <v-img cover height="200px" :src="imgUrl"></v-img>
-    <v-card-title color="primary">
-      {{trackName}}
-    </v-card-title>
+  <v-card style="margin: 2px" variant="outlined" color="secondary" class="mx-auto" max-width="344">
+    <v-img cover height="200px" :src="currentSongPicture"></v-img>
+    <v-row>
+      <v-spacer></v-spacer>
+      <v-btn @click="!hasVoted ? upVote(currentSongId) : console.log('you have voted')" color="success" append-icon="mdi-heart-outline">{{currentSongUpVotes}}</v-btn>
+      <v-card-title color="primary">
+        {{currentSongName}}
+      </v-card-title>
+      <v-btn @click="!hasVoted ? downVote(currentSongId) : console.log('you have voted')" color="error" prepend-icon="mdi-heart-broken-outline">{{currentSongDownVotes}}</v-btn>
+      <v-spacer></v-spacer>
+    </v-row>
     <v-card-subtitle>
-      {{ trackArtist }}
+      {{ currentSongArtist }}
     </v-card-subtitle>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -15,9 +21,7 @@
       <div v-show="show">
         <v-divider></v-divider>
         <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for
-          sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you
-          add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+          PLACEHODLER
         </v-card-text>
       </div>
     </v-expand-transition>
@@ -27,11 +31,67 @@
 <script setup>
 /* eslint-disable no-unused-vars */
 import { ref } from 'vue'
+import { defineProps } from 'vue'
 
-const imgUrl = ref('https://cdn.vuetifyjs.com/images/cards/sunshine.jpg')
-const trackName = ref('Track Name')
-const trackArtist = ref('Track Artist')
+const currentSongPicture = ref(require('@/assets/defaultCover.png'))
+const currentSongName = ref('Track Name')
+const currentSongArtist = ref('Track Artist')
+const currentSongDownVotes = ref(0)
+const currentSongUpVotes = ref(0)
 const show = ref(false)
+const hasVoted = ref(false)
 
+const props = defineProps({
+  currentSongId: {
+    type: String,
+    required: true,
+  },
+  currentSongPicture: {
+    type: String,
+    required: false,
+  },
+  currentSongDownVotes: {
+    type: Number,
+    required: true,
+  },
+  currentSongUpVotes: {
+    type: Number,
+    required: true,
+  },
+  currentSongArtist: {
+    type: String,
+    required: true,
+  },
+  currentSongName: {
+    type: String,
+    required: true,
+  },
+});
+
+async function upVote(songId) {
+  console.log('upVote')
+  const baseUrl = 'http://localhost:8080';
+  const endpoint = baseUrl + '/entries/' + songId + "/1";
+  const requestOptions = {
+    method: 'PUT',
+    mode: 'cors',
+  };
+  hasVoted.value = true
+  const response = await fetch(endpoint, requestOptions);
+  const data = await response.json();
+}
+
+async function downVote(songId) {
+  console.log('downVote')
+  const baseUrl = 'http://localhost:8080';
+  const endpoint = baseUrl + '/entries/' + songId + "/2";
+  const requestOptions = {
+    method: 'PUT',
+    mode: 'cors',
+  };
+  hasVoted.value = true
+  const response = await fetch(endpoint, requestOptions);
+  const data = await response.json();
+}
 
 </script>
