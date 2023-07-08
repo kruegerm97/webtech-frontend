@@ -1,4 +1,11 @@
 <template>
+  <div style="font-family: Arial, Helvetica, sans-serif; font-size: 9pt;" v-if="devModeSwitch">
+    <p>devModeSwitch: {{ devModeSwitch }}</p>
+    <p>iFrameSwitch: {{ iFrameSwitch }}</p>
+    <p>isFetching: {{ isFetching }}</p>
+    <p>isFetchingTwo: {{ isFetchingTwo }}</p>
+    <p>playlistLength: {{ playlistLength }}</p>
+  </div>
   <Locator location="Home"/>
   <v-container>
     <vRow>
@@ -14,9 +21,13 @@
         <p style="margin-left: 4px;" v-if="!isFetchingTwo"><FancyCounter v-if="!isFetchingTwo" :number="dbEntriesLength" />Songs in Database</p>
         <v-spacer></v-spacer>
       </v-row>
-      <div class="playlistRender" v-for="song in playlist" :key="song.id">
-        <SongPreview :linkId="song.value"/>
+    <v-row v-if="iFrameSwitch">
+      <div class="playlistRender" v-for="song in songs" :key="song.id">
+        <v-spacer></v-spacer>
+        <SongPreview v-if="!isFetching" :linkId="song"/>
+        <v-spacer></v-spacer>
       </div>
+    </v-row>
   </v-container>
 </template>
 
@@ -28,7 +39,11 @@ import {ref, computed} from "vue";
 import Locator from "@/components/Locator.vue";
 import { onMounted } from "vue";
 import { watch } from "vue";
+import Card from "@/components/CardOkCool.vue";
+import CardOkCool from "@/components/CardOkCool.vue";
 
+const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
+const iFrameSwitch = ref(localStorage.getItem("iFrameSwitch") === "true");
 const playlist = ref([]);
 const isFetching = ref(true);
 const dbEntries = ref([]);
@@ -51,11 +66,6 @@ async function getSongs(playlistId) {
   isFetching.value = false;
 }
 
-const playlistLength = computed(() => {
-  console.log('playlistLength ' + playlist.value.length)
-  return playlist.value.length;
-});
-
 async function getDb() {
   console.log('getDb')
   isFetchingTwo.value = true;
@@ -72,6 +82,16 @@ async function getDb() {
   isFetchingTwo.value = false;
 }
 
+const playlistLength = computed(() => {
+  console.log('playlistLength ' + playlist.value.length)
+  return playlist.value.length;
+});
+
+const songs = computed(() => {
+  console.log('songs ' + playlist.value)
+  return playlist.value;
+});
+
 const dbEntriesLength = computed(() => {
   console.log('dbEntriesLength ' + dbEntries.value.length)
   return dbEntries.value.length;
@@ -83,6 +103,10 @@ watch(isFetchingTwo, () => {
 
 watch(isFetching, () => {
   console.log('isFetching changed')
+});
+
+watch(songs, () => {
+  console.log('songs changed')
 });
 
 </script>
