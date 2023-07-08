@@ -1,6 +1,6 @@
 <template>
   <Locator location="About"/>
-  <h2>Spotify-Playlist-Creator by Maurice and Janik</h2>
+  <h2 :style="{color: theme.global.current.value.colors.secondary}">Spotify-Playlist-Creator by Maurice and Janik</h2>
   <vContainer class="used">
     <vCard class="mx-auto pa-2" max-width="300">
       <vList>
@@ -49,4 +49,10 @@ export default {
     ],
   }),
 }
+</script>
+
+<script setup>
+import {useTheme} from "vuetify";
+
+const theme = useTheme()
 </script>

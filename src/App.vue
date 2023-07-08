@@ -1,10 +1,10 @@
 <template>
-  <vApp theme="customLightTheme" style="font-family: LiveOverfont">
+  <vApp style="font-family: LiveOverfont">
     <vContainer>
       <v-row>
         <VSpacer></VSpacer>
         <routerLink to="/">
-          <VImg class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_icon.png')" style="width: 150px; height: 150px"/>
+          <VImg class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_new.png')" style="width: 150px; height: 150px"/>
         </routerLink>
         <VSpacer></VSpacer>
       </v-row>
@@ -18,7 +18,7 @@
     <routerView/>
     <div style="height: 100px"/>
     <vContainer>
-      <vBottomNavigation style="margin-bottom: 20px; border-color: #6300ef" border density="comfortable" rounded="lg" bg-color="background" color="primary">
+      <vBottomNavigation :style="{borderColor: theme.global.current.value.colors.secondary}" style="margin-bottom: 20px; border-style: solid; border-width: 2px" border density="comfortable" rounded="lg" bg-color="background" color="secondary">
         <vBtn to="/settings" value="settings">
           <vIcon icon="mdi-cog">mdi-cog</vIcon>
         </vBtn>
@@ -67,7 +67,10 @@
 /* eslint-disable no-unused-vars */
 import homeView from "@/views/HomeView.vue";
 import ThemeChange from "@/components/themeChange.vue";
-import { ref } from "vue";
+import {computed, ref, watch} from "vue";
+import {useTheme} from "vuetify";
+
+const theme = useTheme();
 
 const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
 </script>

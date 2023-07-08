@@ -1,6 +1,8 @@
 <template>
-  <v-btn v-if="theme.current.value.dark === false" icon="mdi-moon-waning-crescent" @click="toggleTheme"></v-btn>
-  <v-btn v-if="theme.current.value.dark === true" icon="mdi-white-balance-sunny" @click="toggleTheme"></v-btn>
+  <v-container>
+    <v-btn color="primary-darken-1" v-if="theme.current.value.dark === false" append-icon="mdi-moon-waning-crescent" @click="toggleTheme">Dark</v-btn>
+    <v-btn color="primary" v-if="theme.current.value.dark === true" append-icon="mdi-white-balance-sunny" @click="toggleTheme">Light</v-btn>
+  </v-container>
 </template>
 
 <script>
@@ -17,10 +19,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.smallRight{
-  margin: 0 0 0;
-  align-self: flex-end;
-}
-</style>

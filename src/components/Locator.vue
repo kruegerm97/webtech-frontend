@@ -1,5 +1,5 @@
 <template>
-  <h3>You are here: {{ location }}</h3>
+  <h3 :style="{color: theme.global.current.value.colors.secondary}">{{ location }}</h3>
 </template>
 
 <script>
@@ -9,4 +9,10 @@ export default {
     location: String
   }
 }
+</script>
+
+<script setup>
+import {useTheme} from "vuetify";
+
+const theme = useTheme()
 </script>

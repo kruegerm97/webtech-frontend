@@ -2,12 +2,12 @@
   <Locator location="Settings"/>
   <v-row style="max-height: 28px;">
     <v-spacer></v-spacer>
-      <v-switch v-model="iFrameSwitch" density="compact" label="iFrames" color="#6300ef" style="max-width: 110px; max-height: 5px;"></v-switch>
+      <v-switch v-model="iFrameSwitch" density="compact" label="iFrames" color="primary" style="max-width: 110px; max-height: 5px;"></v-switch>
     <v-spacer></v-spacer>
   </v-row>
   <v-row style="max-height: 28px; margin-bottom: 7px;">
     <v-spacer></v-spacer>
-      <v-switch v-model="devModeSwitch" density="compact" label="devMode" color="#6300ef" style="max-width: 110px;"></v-switch>
+      <v-switch v-model="devModeSwitch" density="compact" label="devMode" color="primary" style="max-width: 110px;"></v-switch>
     <v-spacer></v-spacer>
   </v-row>
   <div style="font-family: Arial, Helvetica, sans-serif; font-size: 9pt;" v-if="devModeSwitch">

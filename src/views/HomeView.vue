@@ -10,8 +10,8 @@
   <v-container>
     <vRow>
       <v-spacer></v-spacer>
-      <v-text-field v-model="inputPlaylistId" label="enter the Playlist-ID" variant="outlined"></v-text-field>
-      <v-btn @click="getSongs(inputPlaylistId), getDb()" style="margin-left: 10px; margin-top: 13px" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal">Import to Database</v-btn>
+      <v-text-field v-model="inputPlaylistId" label="enter the Playlist-ID" variant="outlined" color="secondary"></v-text-field>
+      <v-btn @click="getSongs(inputPlaylistId), getDb()" style="margin-left: 10px; margin-top: 13px" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal" color="primary">Import to Database</v-btn>
       <v-spacer></v-spacer>
     </vRow>
       <v-row style="margin-bottom: 15px;">
@@ -28,6 +28,9 @@
         <v-spacer></v-spacer>
       </div>
     </v-row>
+    <v-row v-if="!iFrameSwitch">
+      <BetterCard/>
+    </v-row>
   </v-container>
 </template>
 
@@ -41,6 +44,7 @@ import { onMounted } from "vue";
 import { watch } from "vue";
 import Card from "@/components/CardOkCool.vue";
 import CardOkCool from "@/components/CardOkCool.vue";
+import BetterCard from "@/components/BetterCard.vue";
 
 const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
 const iFrameSwitch = ref(localStorage.getItem("iFrameSwitch") === "true");
@@ -48,7 +52,7 @@ const playlist = ref([]);
 const isFetching = ref(true);
 const dbEntries = ref([]);
 const isFetchingTwo = ref(true);
-const inputPlaylistId = ref('4au6goX6kuGGbMGUqbbRO6');
+const inputPlaylistId = ref('');
 
 async function getSongs(playlistId) {
   console.log('getSongs ' + playlistId)
