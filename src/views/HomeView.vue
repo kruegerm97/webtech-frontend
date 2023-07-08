@@ -1,5 +1,4 @@
 <template>
-  <Locator location="Home"/>
   <v-container>
     <vRow>
       <v-spacer></v-spacer>
@@ -7,35 +6,46 @@
       <vBtn style="margin-left: 10px; margin-top: 0.75%" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal">Import to Database</vBtn>
       <v-spacer></v-spacer>
     </vRow>
-<!--    <FancyCounter :number="playlist.length"/>
-    <div class="playlistRender" v-for="song in playlist" :key="song.id">
-      <SongPreview :linkId="song.value"/>
-    </div>-->
+    <div v-if="!isFetching">
+      <FancyCounter :number="playlistLength" />
+      <div class="playlistRender" v-for="song in playlist" :key="song.id">
+        <SongPreview :linkId="song.value"/>
+      </div>
+    </div>
   </v-container>
 </template>
 
 <script setup>
-/* eslint-disable no-unused-vars */
-import Locator from '@/components/Locator.vue';
 import SongPreview from "@/components/SongPreview.vue";
 import FancyCounter from "@/components/FancyCounter.vue";
-import {ref} from "vue";
+import {ref, computed} from "vue";
 
-const playlist = getSongs('4au6goX6kuGGbMGUqbbRO6');
-const inputPlaylistId = ref()
+const playlist = ref([]);
+const isFetching = ref(true);
 
-function getSongs(playlistId){
-      const baseUrl = 'http://localhost:8080'
-      const endpoint = baseUrl + '/playlist/' + playlistId
-      const requestOptions = {
-        method: 'GET',
-        mode: 'cors',
-      }
-      fetch(endpoint, requestOptions)
-      .then(response => {return response.json();})
-      .then(response => console.log('songs in playlist: ' + response.length))
-      .catch(err => console.error(err))
+getSongs('4au6goX6kuGGbMGUqbbRO6').then((data) => {
+  if (data) {
+    playlist.value = data;
+  }
+  isFetching.value = false;
+});
+
+async function getSongs(playlistId) {
+  const baseUrl = 'http://localhost:8080';
+  const endpoint = baseUrl + '/playlist/' + playlistId;
+  const requestOptions = {
+    method: 'GET',
+    mode: 'cors',
+  };
+
+  const response = await fetch(endpoint, requestOptions);
+  const data = await response.json();
+  return data;
 }
+
+const playlistLength = computed(() => {
+  return playlist.value.length;
+});
 </script>
 
 <style scoped>
