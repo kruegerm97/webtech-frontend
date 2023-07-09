@@ -7,21 +7,31 @@
         <vListSubheader>Frontend</vListSubheader>
         <vListItem v-for="(item, i) in items" :key="i" :value="item" color="primary" rounded="xl">
           <template v-slot:prepend>
-            <vIcon :href=item.link :icon="item.icon"></vIcon> <!--TODO: href doesnt work-->
+            <a :href="item.link">
+              <v-icon :href=item.link :icon="item.icon"></v-icon> <!--TODO: href doesnt work-->
+            </a>
           </template>
-          <vListItemTitle :href="item.link" v-text="item.title"></vListItemTitle> <!--TODO: href doesnt work-->
+          <a :href="item.link">
+            <v-list-item-title :href="item.link" v-text="item.title"></v-list-item-title> <!--TODO: href doesnt work-->
+          </a>
           <p style="font-size: 7pt;" v-if="devModeSwitch">{{item.link}}</p>
+
         </vListItem>
       </vList>
     </vCard>
+    <a href="https://www.google.de">Home</a>
     <vCard class="mx-auto pa-2" max-width="300">
       <vList>
         <vListSubheader>Backend</vListSubheader>
         <vListItem v-for="(item, i) in itemsTwo" :key="i" :value="item" color="primary" rounded="xl">
           <template v-slot:prepend>
-            <vIcon :href="item.link" :icon="item.icon"></vIcon> <!--TODO: href doesnt work-->
+            <a :href="item.link">
+              <vIcon :href="item.link" :icon="item.icon"></vIcon> <!--TODO: href doesnt work-->
+            </a>
           </template>
-          <vListItemTitle :href="item.link" v-text="item.title"></vListItemTitle> <!--TODO: href doesnt work-->
+          <a :href="item.link">
+            <vListItemTitle :href="item.link" v-text="item.title"></vListItemTitle> <!--TODO: href doesnt work-->
+          </a>
           <p style="font-size: 7pt;" v-if="devModeSwitch">{{item.link}}</p>
         </vListItem>
       </vList>
