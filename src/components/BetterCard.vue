@@ -1,12 +1,12 @@
 <template>
-  <v-card variant="outlined" color="secondary" class="mx-auto" max-width="344">
-    <v-img cover height="200px" :src="currentSongPicture"></v-img>
+  <v-card variant="outlined" color="secondary" class="mx-auto" height="344" width="344" max-width="344" max-height="344">
+    <v-img cover height="220px" :src="currentSongPicture"></v-img>
     <p v-if="devModeSwitch" style="margin: 7px">{{currentSongPicture}}</p>
     <v-row>
       <v-spacer></v-spacer>
       <v-btn @click="!hasVoted || devModeSwitch ? upVote(currentSongId) : console.log('you have voted')" color="success" append-icon="mdi-heart-outline">{{currentSongUpVotes}}</v-btn>
       <v-card-title color="primary">
-        {{currentSongName}}
+        <vue3-marquee style="max-width: 130px" :duration="5" :delay="1" :clone="true" :pauseOnClick="true">| {{currentSongName}} |</vue3-marquee>
       </v-card-title>
       <v-btn @click="!hasVoted || devModeSwitch ? downVote(currentSongId) : console.log('you have voted')" color="error" prepend-icon="mdi-heart-broken-outline">{{currentSongDownVotes}}</v-btn>
       <v-spacer></v-spacer>
@@ -32,15 +32,10 @@
 
 <script setup>
 /* eslint-disable no-unused-vars */
-import {ref, watch} from 'vue'
+import { ref } from 'vue'
 import { defineProps } from 'vue'
+import {Vue3Marquee} from "vue3-marquee";
 
-/*const currentSongPicture = ref(require('@/assets/defaultCover.png'))
-const currentSongName = ref('Track Name')
-const currentSongArtist = ref('Track Artist')
-const currentSongDownVotes = ref(0)
-const currentSongUpVotes = ref(0)
-const currentSongId = ref('PLACEHODLER')*/
 const show = ref(false)
 const hasVoted = ref(false)
 const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");

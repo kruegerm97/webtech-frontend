@@ -8,19 +8,19 @@
   </div>
   <Locator location="Home"/>
   <v-container>
-    <vRow>
+    <v-row>
       <v-spacer></v-spacer>
       <v-text-field v-model="inputPlaylistId" label="enter the Playlist-ID" variant="outlined" color="secondary"></v-text-field>
       <v-btn @click="getSongs(inputPlaylistId), getDb()" style="margin-left: 10px; margin-top: 13px" rounded="lg" append-icon="mdi-database-import-outline" variant="tonal" color="primary">Import to Database</v-btn>
       <v-spacer></v-spacer>
-    </vRow>
-      <v-row style="margin-bottom: 15px;">
-        <v-spacer></v-spacer>
-        <p style="margin-right: 4px;" v-if="!isFetching"><FancyCounter v-if="!isFetching" :number="playlistLength" />Songs in this Playlist</p>
-        <p v-if="!isFetchingTwo && !isFetching" style="width: 20px; font-size: 40px;">|</p>
-        <p style="margin-left: 4px;" v-if="!isFetchingTwo"><FancyCounter v-if="!isFetchingTwo" :number="dbEntriesLength" />Songs in Database</p>
-        <v-spacer></v-spacer>
-      </v-row>
+    </v-row>
+    <v-row style="margin-bottom: 15px;">
+      <v-spacer></v-spacer>
+      <p style="margin-right: 4px;" v-if="!isFetching"><FancyCounter v-if="!isFetching" :number="playlistLength" />Songs in this Playlist</p>
+      <p v-if="!isFetchingTwo && !isFetching" style="width: 20px; font-size: 40px;">|</p>
+      <p style="margin-left: 4px;" v-if="!isFetchingTwo"><FancyCounter v-if="!isFetchingTwo" :number="dbEntriesLength" />Songs in Database</p>
+      <v-spacer></v-spacer>
+    </v-row>
     <v-row v-if="iFrameSwitch">
       <div class="playlistRender" v-for="song in songs" :key="song.id">
         <v-spacer></v-spacer>
@@ -31,9 +31,9 @@
     <v-row align-content="center" v-if="!iFrameSwitch">
       <div class="playlistRenderCard" v-for="song in songs" :key="song.id">
         <v-spacer></v-spacer>
-          <h2 v-if="devModeSwitch">{{song.track_id}}</h2>
-          <h2 v-if="devModeSwitch">{{song.name}}</h2>
-          <BetterCard v-if="!isFetching" dense :currentSongId="song.track_id" :currentSongArtist="song.artists" :currentSongName="song.name" :currentSongPicture="song.image_href" :currentSongDownVotes="song.dislikes" :currentSongUpVotes="song.likes"/>
+        <h2 v-if="devModeSwitch">{{song.track_id}}</h2>
+        <h2 v-if="devModeSwitch">{{song.name}}</h2>
+        <BetterCard v-if="!isFetching" dense :currentSongId="song.track_id" :currentSongArtist="song.artists" :currentSongName="song.name" :currentSongPicture="song.image_href" :currentSongDownVotes="song.dislikes" :currentSongUpVotes="song.likes"/>
         <v-spacer></v-spacer>
       </div>
     </v-row>
@@ -46,10 +46,7 @@ import SongPreview from "@/components/SongPreview.vue";
 import FancyCounter from "@/components/FancyCounter.vue";
 import {ref, computed} from "vue";
 import Locator from "@/components/Locator.vue";
-import { onMounted } from "vue";
 import { watch } from "vue";
-import Card from "@/components/CardOkCool.vue";
-import CardOkCool from "@/components/CardOkCool.vue";
 import BetterCard from "@/components/BetterCard.vue";
 
 const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");

@@ -1,4 +1,5 @@
 <template>
+  <p v-if="devModeSwitch">{{linkId}}</p>
   <iframe style="border-radius:12px; margin-left:5px" width="300" height="100%" :src="'https://open.spotify.com/embed/track/' + linkId + '?utm_source=generator&theme=0'" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   <!-- <VContainer>
     <v-card style="border-radius:12px;margin: 3px" :src="embedUrl" width="300px" height="500px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
@@ -13,8 +14,10 @@
 
 <script setup>
 /* eslint-disable no-unused-vars */
-import { computed } from 'vue';
+import {computed, ref} from 'vue';
 import { defineProps } from 'vue';
+
+const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
 
 const props = defineProps({
   linkId: {

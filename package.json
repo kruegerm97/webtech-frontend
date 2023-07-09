@@ -15,6 +15,7 @@
     "vue": "^3.2.13",
     "vue-iframes": "^0.0.20",
     "vue-router": "^4.0.3",
+    "vue3-marquee": "^4.0.0",
     "vuetify": "^3.3.6"
   },
   "devDependencies": {
