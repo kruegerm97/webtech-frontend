@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/Locator.vue'
+import Locator from '@/components/Locator.vue'
 
 describe('Locator.vue', () => {
   it('renders props.msg when passed', () => {

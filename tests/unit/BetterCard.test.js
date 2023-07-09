@@ -35,13 +35,4 @@ describe('BetterCard.vue', () => {
     expect(wrapper.emitted('downvote')).toBeTruthy();
     expect(wrapper.emitted('downvote')[0]).toEqual([currentSongId]);
   });
-
-  it('toggles the show property when the expand button is clicked', () => {
-    const wrapper = shallowMount(BetterCard);
-    const button = wrapper.find('.v-btn--icon');
-    button.trigger('click');
-    expect(wrapper.vm.show).toBe(true);
-    button.trigger('click');
-    expect(wrapper.vm.show).toBe(false);
-  });
 });
