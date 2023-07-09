@@ -14,10 +14,13 @@
     <p>Theme name: {{theme.global.name}}</p>
     <p>Theme colors: {{theme.global.current.value.colors}}</p>
   </div>
+  <disHeading title="devMode" message="devMode enables various debug elements and infos all over the site"></disHeading>
+  <disHeading title="iFrames" message="shows Spotify-iFrames instead of our cards in homeView after importing a playlist"></disHeading>
 </template>
 
 <script>
 import Locator from "@/components/Locator.vue";
+import disHeading from "@/components/disHeading.vue";
 
 export default {
   name: "SettingsView",
