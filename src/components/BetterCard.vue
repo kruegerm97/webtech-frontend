@@ -15,7 +15,7 @@
       <h2 v-if="devModeSwitch">{{currentSongId}}</h2>
       {{ currentSongArtist }}
     </v-card-subtitle>
-<!--    <v-card-actions>
+    <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
     </v-card-actions>
@@ -23,10 +23,10 @@
       <div v-show="show">
         <v-divider></v-divider>
         <v-card-text>
-          PLACEHODLER
+          <v-btn @click="deleteTrack(currentSongId)" append-icon="mdi-tash-can" label="PLACEHODLER">Delete Song</v-btn>
         </v-card-text>
       </div>
-    </v-expand-transition>-->
+    </v-expand-transition>
   </v-card>
 </template>
 
@@ -93,6 +93,19 @@ async function downVote(songId) {
 
   const response = await fetch(endpoint, requestOptions);
   const data = await response.json();
+}
+
+async function deleteTrack(songId) {
+  console.log('delete Track: ' + songId)
+  const baseUrl = 'http://localhost:8080';
+  const endpoint = baseUrl + '/entries/' + songId;
+  const requestOptions = {
+    method: 'DELETE',
+    mode: 'cors',
+  };
+  hasVoted.value = true
+
+  const response = await fetch(endpoint, requestOptions);
 }
 
 </script>
