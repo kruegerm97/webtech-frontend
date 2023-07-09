@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 import MyComponent from '@/components/MyComponent.vue';
 
+
 describe('MyComponent', () => {
   it('renders props.title and props.message when passed', () => {
     const title = 'Test Title';
