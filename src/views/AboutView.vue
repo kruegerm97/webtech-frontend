@@ -7,9 +7,10 @@
         <vListSubheader>Frontend</vListSubheader>
         <vListItem v-for="(item, i) in items" :key="i" :value="item" color="primary" rounded="xl">
           <template v-slot:prepend>
-            <vIcon :icon="item.icon"></vIcon>
+            <vIcon :href=item.link :icon="item.icon"></vIcon> <!--TODO: href doesnt work-->
           </template>
-          <vListItemTitle v-text="item.title"></vListItemTitle>
+          <vListItemTitle :href="item.link" v-text="item.title"></vListItemTitle> <!--TODO: href doesnt work-->
+          <p style="font-size: 7pt;" v-if="devModeSwitch">{{item.link}}</p>
         </vListItem>
       </vList>
     </vCard>
@@ -18,9 +19,10 @@
         <vListSubheader>Backend</vListSubheader>
         <vListItem v-for="(item, i) in itemsTwo" :key="i" :value="item" color="primary" rounded="xl">
           <template v-slot:prepend>
-            <vIcon :icon="item.icon"></vIcon>
+            <vIcon :href="item.link" :icon="item.icon"></vIcon> <!--TODO: href doesnt work-->
           </template>
-          <vListItemTitle v-text="item.title"></vListItemTitle>
+          <vListItemTitle :href="item.link" v-text="item.title"></vListItemTitle> <!--TODO: href doesnt work-->
+          <p style="font-size: 7pt;" v-if="devModeSwitch">{{item.link}}</p>
         </vListItem>
       </vList>
     </vCard>
@@ -37,15 +39,15 @@ export default {
   },
   data: () => ({
     items: [
-      {title: 'Javascript', icon: 'mdi-language-javascript'},
-      {title: 'VueJs', icon: 'mdi-vuejs'},
-      {title: 'Vuetify', icon: 'mdi-vuetify'},
-      {title: 'CSS', icon: 'mdi-language-css3'},
-      {title: 'HTML', icon: 'mdi-language-html5'},
+      {title: 'Javascript', icon: 'mdi-language-javascript', link:'https://developer.mozilla.org/en-US/docs/Web/JavaScript?retiredLocale=de'},
+      {title: 'VueJs', icon: 'mdi-vuejs', link:'https://vuejs.org/'},
+      {title: 'Vuetify', icon: 'mdi-vuetify', link:'https://vuetifyjs.com/en/'},
+      {title: 'CSS', icon: 'mdi-language-css3', link:'https://developer.mozilla.org/en-US/docs/Web/CSS?retiredLocale=de'},
+      {title: 'HTML', icon: 'mdi-language-html5', link:'https://developer.mozilla.org/en-US/docs/Glossary/HTML5?retiredLocale=de'},
     ],
     itemsTwo: [
-      {title: 'Java', icon: 'mdi-language-java'},
-      {title: 'Spotify-Api', icon: 'mdi-spotify'},
+      {title: 'Java', icon: 'mdi-language-java', link:'https://dev.java/'},
+      {title: 'Spotify-Api', icon: 'mdi-spotify', link:'https://developer.spotify.com/documentation/web-api'},
     ],
   }),
 }
@@ -53,6 +55,8 @@ export default {
 
 <script setup>
 import {useTheme} from "vuetify";
+import {ref} from "vue";
 
+const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
 const theme = useTheme()
 </script>

@@ -24,15 +24,16 @@
     <v-row v-if="iFrameSwitch">
       <div class="playlistRender" v-for="song in songs" :key="song.id">
         <v-spacer></v-spacer>
-        <SongPreview v-if="!isFetching" :linkId="song"/>
+        <SongPreview v-if="!isFetching" :linkId="song.track_id"/>
         <v-spacer></v-spacer>
       </div>
     </v-row>
-    <v-row v-if="!iFrameSwitch">
+    <v-row align-content="center" v-if="!iFrameSwitch">
       <div class="playlistRenderCard" v-for="song in songs" :key="song.id">
         <v-spacer></v-spacer>
-          <h1 v-if="devModeSwitch">{{song}}</h1>
-         <BetterCard v-if="!isFetching" :current-song-id="song.id" :current-song-artist="song.artist" :current-song-name="" :current-song-picture="" :current-song-down-votes="" :current-song-up-votes=""/>
+          <h2 v-if="devModeSwitch">{{song.track_id}}</h2>
+          <h2 v-if="devModeSwitch">{{song.name}}</h2>
+          <BetterCard v-if="!isFetching" dense :currentSongId="song.track_id" :currentSongArtist="song.artists" :currentSongName="song.name" :currentSongPicture="song.image_href" :currentSongDownVotes="song.dislikes" :currentSongUpVotes="song.likes"/>
         <v-spacer></v-spacer>
       </div>
     </v-row>
@@ -71,6 +72,7 @@ async function getSongs(playlistId) {
 
   const response = await fetch(endpoint, requestOptions);
   const data = await response.json();
+  console.log('Data: ' + data);
   playlist.value = data;
   isFetching.value = false;
 }
