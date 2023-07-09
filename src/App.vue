@@ -14,7 +14,6 @@
         <VSpacer></VSpacer>
       </vRow>
     </vContainer>
-    <TestComponent v-if="false"/>
     <routerView/>
     <div style="height: 100px"/>
     <vContainer>
@@ -24,6 +23,9 @@
         </vBtn>
         <vBtn to="/" value="home">
           <vIcon icon="mdi-home">mdi-home</vIcon>
+        </vBtn>
+        <vBtn to="/database" value="database">
+          <v-icon icon="mdi-help">mdi-database</v-icon>
         </vBtn>
         <vBtn to="/about" value="about">
           <v-icon icon="mdi-help">mdi-help</v-icon>

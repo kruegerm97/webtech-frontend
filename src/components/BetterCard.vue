@@ -1,5 +1,5 @@
 <template>
-  <v-card variant="outlined" color="secondary" class="mx-auto" height="344" width="344" max-width="344" max-height="344">
+  <v-card v-if="!hasVoted" variant="outlined" color="secondary" class="mx-auto" width="344" max-width="344">
     <v-img cover height="220px" :src="currentSongPicture"></v-img>
     <p v-if="devModeSwitch" style="margin: 7px">{{currentSongPicture}}</p>
     <v-row>
@@ -15,7 +15,7 @@
       <h2 v-if="devModeSwitch">{{currentSongId}}</h2>
       {{ currentSongArtist }}
     </v-card-subtitle>
-    <v-card-actions>
+<!--    <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
     </v-card-actions>
@@ -26,7 +26,7 @@
           PLACEHODLER
         </v-card-text>
       </div>
-    </v-expand-transition>
+    </v-expand-transition>-->
   </v-card>
 </template>
 
@@ -76,6 +76,7 @@ async function upVote(songId) {
     mode: 'cors',
   };
   hasVoted.value = true
+
   const response = await fetch(endpoint, requestOptions);
   const data = await response.json();
 }
@@ -89,6 +90,7 @@ async function downVote(songId) {
     mode: 'cors',
   };
   hasVoted.value = true
+
   const response = await fetch(endpoint, requestOptions);
   const data = await response.json();
 }
