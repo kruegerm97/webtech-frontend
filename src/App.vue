@@ -4,7 +4,7 @@
       <v-row>
         <VSpacer></VSpacer>
         <routerLink to="/">
-          <VImg class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_new.png')" style="width: 150px; height: 150px"/>
+          <V-img class="bigger" @click="homeView" role="link" alt="SPC logo" contain :src="require('./assets/logo_new.png')" style="width: 150px; height: 150px"/>
         </routerLink>
         <VSpacer></VSpacer>
       </v-row>
@@ -66,13 +66,12 @@
 </style>
 
 <script setup>
-/* eslint-disable no-unused-vars */
 import homeView from "@/views/HomeView.vue";
 import ThemeChange from "@/components/themeChange.vue";
-import {computed, ref, watch} from "vue";
+//import {ref} from "vue";
 import {useTheme} from "vuetify";
 
 const theme = useTheme();
 
-const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
+//const devModeSwitch = ref(localStorage.getItem("devModeSwitch") === "true");
 </script>

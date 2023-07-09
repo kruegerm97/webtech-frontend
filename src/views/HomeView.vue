@@ -41,7 +41,6 @@
 </template>
 
 <script setup>
-/* eslint-disable no-unused-vars */
 import SongPreview from "@/components/SongPreview.vue";
 import FancyCounter from "@/components/FancyCounter.vue";
 import {ref, computed} from "vue";
