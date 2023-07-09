@@ -1,12 +1,14 @@
-import { shallowMount } from '@vue/test-utils'
-import Locator from '@/components/Locator.vue'
+import { shallowMount } from '@vue/test-utils';
+import MyComponent from './disHeading.vue';
 
-describe('Locator.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
-  })
-})
+describe('MyComponent', () => {
+  it('renders props.title and props.message when passed', () => {
+    const title = 'Test Title';
+    const message = 'Test Message';
+    const wrapper = shallowMount(MyComponent, {
+      propsData: { title, message },
+    });
+    expect(wrapper.text()).toMatch(title);
+    expect(wrapper.text()).toMatch(message);
+  });
+});
