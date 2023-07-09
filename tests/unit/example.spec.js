@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import MyComponent from './disHeading.vue';
+import MyComponent from '@/components/disHeading.vue';
 
 
 describe('MyComponent', () => {
